@@ -1,5 +1,12 @@
 # Qiskit
 
+| Package | Version |
+| -------- | -------- |
+qiskit     |       1.4.5
+qiskit-aer |      0.17.2
+qiskit-algorithms | 0.4.0
+
+
 1. Một quantum circuit hoàn chỉnh, có quantum register, classical register, measurement, device.
 
 <img src = './images/circuit.png'>
@@ -54,6 +61,6 @@ for t in range(0, T_max):
 
 ---
 
-Tham khảo:
+*Tham khảo:*
 
 <img src = './images/ref.png'>
