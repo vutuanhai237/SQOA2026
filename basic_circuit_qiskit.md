@@ -7,32 +7,46 @@ qiskit-aer |      0.17.2
 qiskit-algorithms | 0.4.0
 
 
-1. Một quantum circuit hoàn chỉnh, có quantum register, classical register, measurement, device.
+## 1. Một quantum circuit hoàn chỉnh, có quantum register, classical register, measurement, device.
+
+1.1. Đo bằng Sampler
 
 <img src = './images/circuit.png'>
 
-2. Tất cả các quantum circuit đều cần chạy trên một "backend", "backend" chính là cơ chế chạy trên hardware thật hoặc mô phỏng, có các loại mô phỏng như bên dưới (một số giải thuật song song hoá được)
+1.2. Đo bằng Estimator
+
+$p_{000} = \langle\psi | 000 \rangle \langle 000 |\psi\rangle = |\langle 000 |\psi\rangle|^2$
+Để tạo ra được $|000\rangle$, ta sử dụng $(I+Z)/2$ cho mỗi qubit. 
+
+Trong Qiskit, thứ tự qubit trong chuỗi Pauli là $q_2 q_1 q_0$
+
+$|000\rangle\langle 000|=(\frac{I+Z}{2})\otimes(\frac{I+Z}{2})\otimes(\frac{I+Z}{2})$
+
+
+## 2. Backend
+
+Tất cả các quantum circuit đều cần chạy trên một "backend", "backend" chính là cơ chế chạy trên hardware thật hoặc mô phỏng, có các loại mô phỏng như bên dưới (một số giải thuật song song hoá được)
 
 <img src = './images/backend.png'>
 
-3. Mạch có "tham số" $\bm\theta=[\theta_0\;\theta_1\ldots\theta_{m-1}]^{\intercal}$
+## 3. Mạch có "tham số" $\bm\theta=[\theta_0\;\theta_1\ldots\theta_{m-1}]^{\intercal}$
 Lưu ý: $\forall \theta_j\in\bm\theta, 0\leq\theta_j\leq2\pi$.
 
 <img src = './images/pcircuit.png'>
 
-4. Mạch được transpile
+## 4. Mạch được transpile
 
 <img src = './images/transpiled_circuit.png'>
 
-5. Thêm một cổng "handmade"
+## 5. Thêm một cổng "handmade"
 
 <img src = './images/custom_gate.png'>
 
-6. Tạo Hardware-Efficient "ansatz"
+## 6. Tạo Hardware-Efficient "ansatz"
 
 <img src = './images/ansatz.png'>
 
-7. Tính "gradient" trên Hardware-Efficient "ansatz" có $m$ parameter.
+## 7. Tính "gradient" trên Hardware-Efficient "ansatz" có $m$ parameter.
 
 $\nabla C(\bm\theta)=[\frac{\partial C(\bm\theta)}{\partial \theta_0}\;\frac{\partial C(\bm\theta)}{\partial \theta_1}\;\ldots\;\frac{\partial C(\bm\theta)}{\partial \theta_{m-1}}]$
 
@@ -43,7 +57,7 @@ $
 
 $\epsilon\approx 0, e_j$ là vector đơn vị thứ $j$.
 
-### (Bài tập) 8. Sử dụng gradient để "optimize"
+## (Bài tập) 8. Sử dụng gradient để "optimize"
 
 Mục tiêu: tìm $\bm\theta^*$ sao cho $C(\bm\theta^*)\leq C(\bm\theta)\;\forall \bm\theta$, đơn giản hơn: giá trị $C(\bm\theta^*)$ đạt min.
 
